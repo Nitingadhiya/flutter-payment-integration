@@ -27,7 +27,6 @@ class _RazorPayIntegrationState extends State<RazorPayIntegration> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.network('https://sellonboard.com/wp-content/uploads/2021/09/razorpay.png', height: 80),
             ElevatedButton(
               onPressed: () async {
                 try {

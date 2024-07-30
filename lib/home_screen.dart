@@ -1,6 +1,7 @@
 import 'package:demo_payment_integrations/Google%20Pay/google_pay_integration.dart';
 import 'package:demo_payment_integrations/Razor%20Pay/razor_pay_integartion.dart';
 import 'package:demo_payment_integrations/Stripe/stripe_integration.dart';
+import 'package:demo_payment_integrations/PayPal/pay_pal_integration.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -77,6 +78,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.all(12.0),
                 child: Text(
                   "GPay",
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const PayPalIntegration()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.deepPurpleAccent,
+              ),
+              child: const Padding(
+                padding: EdgeInsets.all(12.0),
+                child: Text(
+                  "PayPal",
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ),

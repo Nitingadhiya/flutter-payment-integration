@@ -44,6 +44,7 @@ class _GooglePayIntegrationState extends State<GPayIntegration> {
               if (snapshot.hasData) {
                 return Platform.isAndroid
                     ? GooglePayButton(
+                        width: 200,
                         paymentConfiguration: snapshot.data!,
                         paymentItems: const [PaymentItem(label: 'Total', amount: "100", status: PaymentItemStatus.final_price, type: PaymentItemType.total)],
                         type: GooglePayButtonType.buy,
