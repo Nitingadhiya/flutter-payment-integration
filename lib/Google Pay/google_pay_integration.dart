@@ -18,10 +18,12 @@ class _GooglePayIntegrationState extends State<GPayIntegration> {
   }
 
   void onGooglePayResult(paymentResult) {
+    successDialog();
     debugPrint(paymentResult.toString());
   }
 
   void onApplePayResult(paymentResult) {
+    successDialog();
     debugPrint(paymentResult.toString());
   }
 
@@ -78,4 +80,48 @@ class _GooglePayIntegrationState extends State<GPayIntegration> {
       ),
     );
   }
+
+  successDialog() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: Colors.white,
+            surfaceTintColor: Colors.white,
+            contentPadding: EdgeInsets.zero,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            insetPadding: const EdgeInsets.all(15),
+            content: SizedBox(
+              // height: 130,
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    children: [
+                      const Spacer(),
+                      IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: const Icon(
+                            Icons.clear,
+                            color: Colors.black,
+                          ))
+                    ],
+                  ),
+                  const SizedBox(height: 15),
+                  const Icon(Icons.check_circle, size: 100, color: Colors.green),
+                  Text("Success", style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Colors.black, fontSize: 18, fontWeight: FontWeight.w700)),
+                  Text("Transaction Completed SuccessFully!", style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Colors.black, fontSize: 16)),
+                  const SizedBox(
+                    height: 30,
+                  )
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
 }

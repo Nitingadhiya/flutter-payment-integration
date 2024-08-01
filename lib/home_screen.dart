@@ -3,6 +3,7 @@ import 'package:demo_payment_integrations/Razor%20Pay/razor_pay_integartion.dart
 import 'package:demo_payment_integrations/Stripe/stripe_integration.dart';
 import 'package:demo_payment_integrations/PayPal/pay_pal_integration.dart';
 import 'package:flutter/material.dart';
+import 'dart:io';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -74,10 +75,10 @@ class _HomeScreenState extends State<HomeScreen> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.deepOrangeAccent,
               ),
-              child: const Padding(
+              child: Padding(
                 padding: EdgeInsets.all(12.0),
                 child: Text(
-                  "GPay",
+                  Platform.isAndroid ? "GPay" : "Apple Pay",
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ),
